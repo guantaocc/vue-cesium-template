@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <viewer></viewer>
+    <viewer> xxx </viewer>
   </div>
 </template>
 

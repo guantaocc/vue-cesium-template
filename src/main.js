@@ -2,11 +2,11 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import StaticCesiumUtil from "@/utils/ViewerUtils";
+import * as mapCesium from "@/utils/ViewerUtils";
 
 Vue.config.productionTip = false;
 // 绑定viewer工具类
-Vue.prototype.$cesium = new StaticCesiumUtil();
+Vue.prototype.$mapCesium = mapCesium;
 
 new Vue({
   router,

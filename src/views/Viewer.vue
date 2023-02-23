@@ -1,20 +1,31 @@
 <template>
   <div class="cesium-container-wrapper">
     <div id="cesiumContainer" ref="viewer"></div>
+    <slot></slot>
   </div>
 </template>
 
 <script>
+import {
+  createMap,
+  destoryMap,
+  createTiandituImageryProvider,
+  tiandituToken,
+} from "@/utils/ViewerUtils";
 export default {
   data() {
     return {};
   },
   mounted() {
     // 初始化 map
-    new this.$mapCesium.Map(this.$refs.viewer, {});
+    let refEl = this.$refs.viewer;
+    createMap(refEl, {
+      imageryProvider: createTiandituImageryProvider(tiandituToken),
+      debugShowFramesPerSecond: true,
+    });
   },
   beforeDestroy() {
-    this.$mapCesium.Util.destroy();
+    destoryMap();
   },
 };
 </script>
